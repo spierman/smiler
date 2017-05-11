@@ -5,14 +5,14 @@
 		"util",
 		"utils"
 	],
-	"homepage": "http://github.com/Seldaek/monolog",
+	"homepage": "https://github.com/spierman/smiler",
 	"type": "library",
 	"license": "MIT",
 	"authors": [
 		{
 			"name": "kid",
 			"email": "18710021649@163.com",
-			"homepage": "http://github.com/Seldaek/monolog"
+			"homepage": "https://github.com/spierman/smiler"
 		}
 	],
 	"require": {
