@@ -1,7 +1,6 @@
 <?php
 namespace Smiler\Util\Log\Monolog;
 
-use Carbon\Carbon;
 use Monolog\Handler\StreamHandler;
 use Monolog\Logger;
 use Smiler\Util\IPUtil;
