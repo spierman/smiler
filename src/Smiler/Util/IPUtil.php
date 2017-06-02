@@ -22,7 +22,7 @@ class IPUtil
                     if (isset($_SERVER['REMOTE_ADDR']) && $_SERVER['REMOTE_ADDR'] && strcasecmp($_SERVER['REMOTE_ADDR'], "unknown"))
                         $ip = $_SERVER['REMOTE_ADDR'];
                     else
-                        $ip = "unknown";
+                        $ip = "127.0.0.1";
         return $ip;
     }
 
