@@ -31,4 +31,13 @@ class StringUtil
         $res = implode('', $res);
         return $res;
     }
+
+    public static function format_number($number, $precision = 2)
+    {
+        if (empty($number)) {
+            $number = 0;
+        }
+        $number = number_format($number, $precision, '.', '');
+        return $number;
+    }
 }
