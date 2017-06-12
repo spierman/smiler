@@ -49,12 +49,11 @@ class ArrayUtil
      * @param string $func            
      * @return array
      */
-    public static function getMultiDataListByIds($ids, $class, $func)
+    public static function getMultiDataListByIds($ids, $class, $func, $size = 256)
     {
         $instance = new $class();
         $flag = true;
         $newList = [];
-        $size = 256;
         $page = 0;
         while ($flag) {
             $idArr = self::sliceArr($ids, $page, $size);
