@@ -32,12 +32,30 @@ class StringUtil
         return $res;
     }
 
-    public static function format_number($number, $precision = 2)
+    public static function formatNumber($number, $precision = 2)
     {
         if (empty($number)) {
             $number = 0;
         }
         $number = number_format($number, $precision, '.', '');
         return $number;
+    }
+
+    /**
+     *
+     * @param string $str            
+     * @return string
+     */
+    public static function cleanStr($str)
+    {
+        $searchArr = array(
+            " ",
+            "　",
+            ",",
+            "\t",
+            "\n",
+            "\r"
+        );
+        return str_replace($searchArr, $str);
     }
 }
