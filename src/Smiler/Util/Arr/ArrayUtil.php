@@ -1,5 +1,5 @@
 <?php
-namespace Smiler\Util;
+namespace Smiler\Util\Arr;
 
 class ArrayUtil
 {
@@ -66,7 +66,7 @@ class ArrayUtil
         return $newList;
     }
 
-    public static function getDataListByIds($ids, $class, $func, $size = 256)
+    public static function getDataListByIds($ids, $class, $func, $size= 256)
     {
         if (! is_object($class)) {
             throw new Exception('class not object');
@@ -90,35 +90,7 @@ class ArrayUtil
         return $newList;
     }
 
-    /**
-     *
-     * @param array $ids            
-     * @param string $class            
-     * @param string $func            
-     * @return array
-     */
-    // public static function getMultiDataListByMultiParams($class, $func, ...$parms)
-    // {
-    // $instance = new $class();
-    // $flag = true;
-    // $newList = array();
-    // $page = 0;
-    // $size = 256;
-    // while ($flag) {
-    // $idArr = self::sliceArr($ids, $page, $size);
-    // if ($idArr) {
-    // $list = $instance->$func($parms);
-    // if ($list) {
-    // $newList = array_merge($newList, $list);
-    // }
-    // $page ++;
-    // } else {
-    // $flag = false;
-    // }
-    // }
-    // return $newList;
-    // }
-    
+
     /**
      *
      * @param array $arr            

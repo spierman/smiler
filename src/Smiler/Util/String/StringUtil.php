@@ -56,6 +56,6 @@ class StringUtil
             "\n",
             "\r"
         );
-        return str_replace($searchArr, $str);
+        return str_replace($searchArr,'', $str);
     }
 }
