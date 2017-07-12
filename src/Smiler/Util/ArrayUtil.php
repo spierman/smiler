@@ -49,7 +49,31 @@ class ArrayUtil
     {
         $instance = new $class();
         $flag = true;
-        $newList = [];
+        $newList = array();
+        $page = 0;
+        while ($flag) {
+            $idArr = self::sliceArr($ids, $page, $size);
+            if ($idArr) {
+                $list = $instance->$func($idArr);
+                if ($list) {
+                    $newList = array_merge($newList, $list);
+                }
+                $page ++;
+            } else {
+                $flag = false;
+            }
+        }
+        return $newList;
+    }
+
+    public static function getDataListByIds($ids, $class, $func, $size)
+    {
+        if (! is_object($class)) {
+            throw new Exception('class not object');
+        }
+        $instance = $class;
+        $flag = true;
+        $newList = array();
         $page = 0;
         while ($flag) {
             $idArr = self::sliceArr($ids, $page, $size);
@@ -77,7 +101,7 @@ class ArrayUtil
     {
         $instance = new $class();
         $flag = true;
-        $newList = [];
+        $newList = array();
         $page = 0;
         $size = 256;
         while ($flag) {
