@@ -41,6 +41,21 @@ class StringUtil
         return $number;
     }
 
+    public static function getSearchArr()
+    {
+        return array(
+            " ",
+            "　",
+            ",",
+            "\t",
+            "\n",
+            "\r",
+            "\r\n",
+            "\r</br>",
+            "</br>"
+        );
+    }
+
     /**
      *
      * @param string $str            
@@ -48,14 +63,7 @@ class StringUtil
      */
     public static function cleanStr($str)
     {
-        $searchArr = array(
-            " ",
-            "　",
-            ",",
-            "\t",
-            "\n",
-            "\r"
-        );
-        return str_replace($searchArr,'', $str);
+        $searchArr = self::getSearchArr();
+        return str_replace($searchArr, '', $str);
     }
 }

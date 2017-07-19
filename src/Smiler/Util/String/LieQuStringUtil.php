@@ -65,11 +65,12 @@ class LieQuStringUtil extends StringUtil
     {
         $attrNameArr = json_decode($attrName, true);
         $attrStr = '';
+        $searchArr = self::getSearchArr();
         foreach ($attrNameArr as $attrNam) {
             $name = $attrNam['name']['name'];
-            $name = str_replace($qian, '', $name);
+            $name = str_replace($searchArr, '', $name);
             $val = $attrNam['value']['name'];
-            $val = str_replace($qian, '', $val);
+            $val = str_replace($searchArr, '', $val);
             $attrStr .= $name . ':' . $val . ';';
         }
         return $attrStr;
