@@ -66,4 +66,17 @@ class StringUtil
         $searchArr = self::getSearchArr();
         return str_replace($searchArr, '', $str);
     }
+
+    /**
+     * get the product discount
+     *
+     * @param float $salePrice            
+     * @param float $originalPrice            
+     * @param int $precision            
+     * @return float
+     */
+    public function getDiscount($salePrice, $originalPrice, $precision = 2)
+    {
+        return round($salePrice / $originalPrice, $precision) * 10;
+    }
 }
