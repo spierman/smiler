@@ -44,6 +44,7 @@ class StringUtil
     public static function getSearchArr()
     {
         return array(
+            "=",
             " ",
             "　",
             ",",
@@ -77,6 +78,45 @@ class StringUtil
      */
     public function getDiscount($salePrice, $originalPrice, $precision = 2)
     {
-        return round($salePrice / $originalPrice, $precision) * 10;
+        return floatval(number_format(round($salePrice / $originalPrice, 2) * 10, 2));
+    }
+
+    public function cleanExcelOperation($str)
+    {
+        if (strpos('=', $str) === 0) {
+            $str = "'" . $str;
+        }
+        return $str;
+    }
+
+    /**
+     * 时间区间是否存在交集
+     *
+     * @param array $timePeriod1            
+     * @param array $timePeriod2            
+     * @return boolean
+     */
+    public static function isIntersectionTimePeriod($timePeriod1, $timePeriod2)
+    {
+        $beginTime1 = strtotime($timePeriod1[0]);
+        $endTime1 = strtotime($timePeriod1[1]);
+        $beginTime2 = strtotime($timePeriod2[0]);
+        $endTime2 = strtotime($timePeriod2[1]);
+        $status = $beginTime2 - $beginTime1;
+        if ($status > 0) {
+            $status2 = $beginTime2 - $endTime1;
+            if ($status2 >= 0) {
+                return false;
+            } else {
+                return true;
+            }
+        } else {
+            $status2 = $endTime2 - $beginTime1;
+            if ($status2 > 0) {
+                return true;
+            } else {
+                return false;
+            }
+        }
     }
 }

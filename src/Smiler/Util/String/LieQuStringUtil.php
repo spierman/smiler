@@ -52,6 +52,9 @@ class LieQuStringUtil extends StringUtil
             case 200:
                 $name = '支付中';
                 break;
+            default:
+                $name = '已支付';
+                break;
         }
         return $name;
     }
