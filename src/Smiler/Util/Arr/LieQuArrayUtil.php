@@ -11,17 +11,13 @@ class LieQuArrayUtil extends ArrayUtil
     public static function getCategoryListByCategoryIds($catIds, $class, $func)
     {
         $totalCatMap = array();
-        $catRelation = array();
-        $n = 0;
         while (sizeof($catIds) > 0) {
-            $n ++;
             $categoryList = self::getMultiDataListByIds($catIds, $class, $func);
             $catIds = array();
             foreach ($categoryList as $category) {
                 $categoryId = $category['category_id'];
                 $pid = $category['pid'];
                 $categoryName = $category['category_name'];
-                // $totalCatMap[$n][$categoryId] = $categoryName;
                 if (in_array($categoryId, $totalCatMap)) {
                     throw \Exception('category has existed');
                 }

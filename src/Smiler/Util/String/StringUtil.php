@@ -119,4 +119,18 @@ class StringUtil
             }
         }
     }
+
+    /**
+     *
+     * @param array $ids            
+     * @return string
+     */
+    public function getStrByIds(array $ids)
+    {
+        $str = '';
+        foreach ($ids as $id) {
+            $str .= "'{$id}',";
+        }
+        return $str;
+    }
 }
