@@ -131,6 +131,6 @@ class StringUtil
         foreach ($ids as $id) {
             $str .= "'{$id}',";
         }
-        return $str;
+        return substr($str, 0, strlen($str) - 1);
     }
 }
