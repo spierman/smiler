@@ -40,6 +40,24 @@ class ArrayUtil
 
     /**
      *
+     * @param array $object            
+     * @param boolean $is_filter_nullval            
+     * @return array
+     */
+    public static function arrayToObject($arr)
+    {
+        $obj = new \stdClass();
+        foreach ($arr as $key => $a) {
+            if ($a === null) {
+                continue;
+            }
+            $obj->$key = $a;
+        }
+        return $obj;
+    }
+
+    /**
+     *
      * @param array $ids            
      * @param string $class            
      * @param string $func            
@@ -66,7 +84,7 @@ class ArrayUtil
         return $newList;
     }
 
-    public static function getDataListByIds($ids, $class, $func, $size= 256)
+    public static function getDataListByIds($ids, $class, $func, $size = 256)
     {
         if (! is_object($class)) {
             throw new Exception('class not object');
@@ -89,7 +107,6 @@ class ArrayUtil
         }
         return $newList;
     }
-
 
     /**
      *

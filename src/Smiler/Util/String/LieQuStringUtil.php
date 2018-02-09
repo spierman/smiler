@@ -78,4 +78,35 @@ class LieQuStringUtil extends StringUtil
         }
         return $attrStr;
     }
+
+    /**
+     *
+     * @param int $mainStatus            
+     * @return string
+     */
+    public static function getSaleStateByStatus($mainStatus)
+    {
+        $saleState = '';
+        switch ($mainStatus) {
+            case 1:
+                $saleState = '在售';
+                break;
+            case 3:
+                $saleState = '下架';
+                break;
+            case 4:
+                $saleState = '删除';
+                break;
+            case 30:
+                $saleState = '商户下架';
+                break;
+            case 5:
+                $saleState = '待审核';
+                break;
+            case 6:
+                $saleState = '待调整';
+                break;
+        }
+        return $saleState;
+    }
 }
