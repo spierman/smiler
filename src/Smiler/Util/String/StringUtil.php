@@ -142,7 +142,7 @@ class StringUtil
 
     public function getWebPage($page)
     {
-        $page = isset($_REQUEST['page']) ? intval($_REQUEST['page']) : 1;
+        $page = isset($_REQUEST[$page]) ? intval($_REQUEST[$page]) : 1;
         if ($page >= 1) {
             $page -= 1;
         }
