@@ -59,7 +59,7 @@ class StringUtil
 
     /**
      *
-     * @param string $str            
+     * @param string $str
      * @return string
      */
     public static function cleanStr($str)
@@ -71,9 +71,9 @@ class StringUtil
     /**
      * get the product discount
      *
-     * @param float $salePrice            
-     * @param float $originalPrice            
-     * @param int $precision            
+     * @param float $salePrice
+     * @param float $originalPrice
+     * @param int $precision
      * @return float
      */
     public function getDiscount($salePrice, $originalPrice, $precision = 2)
@@ -92,8 +92,8 @@ class StringUtil
     /**
      * 时间区间是否存在交集
      *
-     * @param array $timePeriod1            
-     * @param array $timePeriod2            
+     * @param array $timePeriod1
+     * @param array $timePeriod2
      * @return boolean
      */
     public static function isIntersectionTimePeriod($timePeriod1, $timePeriod2)
@@ -122,7 +122,7 @@ class StringUtil
 
     /**
      *
-     * @param array $ids            
+     * @param array $ids
      * @return string
      */
     public static function getStrByIds(array $ids)
@@ -132,5 +132,20 @@ class StringUtil
             $str .= "'{$id}',";
         }
         return substr($str, 0, strlen($str) - 1);
+    }
+
+    public static function makeSqlLimit($page, $size)
+    {
+        $marker = $page * $size;
+        return " limit $marker,$size";
+    }
+
+    public function getWebPage($page)
+    {
+        $page = isset($_REQUEST['page']) ? intval($_REQUEST['page']) : 1;
+        if ($page >= 1) {
+            $page -= 1;
+        }
+        return $page;
     }
 }
