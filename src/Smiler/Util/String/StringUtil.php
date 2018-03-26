@@ -32,6 +32,28 @@ class StringUtil
         return $res;
     }
 
+    /**
+     * 非负浮点数，小数点后n位
+     *
+     * @param int $price
+     * @param number $precision
+     *            n位
+     * @return boolean
+     */
+    public static function isValidPrice($price, $precision = 2)
+    {
+        if (! $price) {
+            $price = 0;
+        }
+        $str = '1,' . $precision;
+        $preg = '/^\d+(\.\d{' . $str . '})?$/';
+        $rst = false;
+        if (preg_match($preg, $price)) {
+            $rst = true;
+        }
+        return $rst;
+    }
+
     public static function formatNumber($number, $precision = 2)
     {
         if (empty($number)) {
@@ -136,16 +158,11 @@ class StringUtil
 
     public static function makeSqlLimit($page, $size)
     {
-        $marker = $page * $size;
-        return " limit $marker,$size";
-    }
-
-    public function getWebPage($page)
-    {
-        $page = isset($_REQUEST[$page]) ? intval($_REQUEST[$page]) : 1;
+        $page = intval($page);
         if ($page >= 1) {
             $page -= 1;
         }
-        return $page;
+        $marker = $page * $size;
+        return " limit $marker,$size";
     }
 }
